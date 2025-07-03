@@ -12,7 +12,7 @@ local palette = {
     gray1 = "#50505a",
     gray2 = "#aaaab3",
     gray3 = "#c5c5cb",
-    gray4 = "#c5c5cb66",
+    gray4 = "#8a8a8f",
     
     -- Foreground
     fg = "#c5c5cb",
@@ -31,9 +31,9 @@ local palette = {
     cyan = "#14E5D4",
     
     -- Transparent versions
-    selection = "#aaaaaa4d",
-    search = "#aaaaaa30",
-    visual = "#aaaaaa4d",
+    selection = "#6a6a6a",
+    search = "#5a5a5a",
+    visual = "#6a6a6a",
     
     -- Semantic colors
     error = "#D62C2C",
@@ -48,10 +48,10 @@ local palette = {
     git_delete = "#D62C2C",
     
     -- Diff colors
-    diff_add = "#31ee701a",
-    diff_change = "#28a9ff1a",
-    diff_delete = "#e919191a",
-    diff_text = "#28a9ff33",
+    diff_add = "#2fb85e",
+    diff_change = "#2088cc",
+    diff_delete = "#b51515",
+    diff_text = "#2088cc",
     
     -- Special
     none = "NONE",
