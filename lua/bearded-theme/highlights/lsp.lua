@@ -16,7 +16,7 @@ function M.setup(colors, config)
         ["@lsp.type.interface"] = { fg = theme.syn.type },
         ["@lsp.type.macro"] = { link = "@function.macro" },
         ["@lsp.type.method"] = { link = "@function.method" },
-        ["@lsp.type.namespace"] = { fg = theme.syn.fun },  -- 28A9FF (blue)
+        ["@lsp.type.namespace"] = { fg = theme.syn.type },  -- A95EFF (purple) - matches type scopes
         ["@lsp.type.parameter"] = { fg = theme.syn.parameter },  -- E66DFF (magenta)
         ["@lsp.type.property"] = { fg = theme.syn.special1 },  -- FF7135 (orange)
         ["@lsp.type.struct"] = { fg = theme.syn.type },

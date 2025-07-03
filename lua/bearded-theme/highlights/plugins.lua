@@ -321,7 +321,7 @@ function M.setup(colors, config)
         NeotestRunning = { fg = theme.diag.warning },
         NeotestSkipped = { fg = theme.diag.hint },
         NeotestTest = { fg = theme.ui.fg },
-        NeotestNamespace = { fg = theme.syn.special1 },
+        NeotestNamespace = { fg = theme.syn.type },  -- A95EFF (purple) - consistent with namespace colors
         NeotestFocused = { fg = theme.syn.special1, bold = true },
         NeotestFile = { fg = theme.syn.special1 },
         NeotestDir = { fg = theme.syn.special1 },
@@ -345,7 +345,7 @@ function M.setup(colors, config)
         AerialKeyIcon = { fg = theme.syn.keyword },
         AerialMethodIcon = { fg = theme.syn.fun },
         AerialModuleIcon = { fg = theme.syn.special1 },
-        AerialNamespaceIcon = { fg = theme.syn.special1 },
+        AerialNamespaceIcon = { fg = theme.syn.type },  -- A95EFF (purple) - consistent with namespace colors
         AerialNullIcon = { fg = theme.syn.constant },
         AerialNumberIcon = { fg = theme.syn.number },
         AerialObjectIcon = { fg = theme.syn.type },

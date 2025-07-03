@@ -18,9 +18,9 @@ function M.setup(colors, config)
         ["@constant.builtin"] = { fg = theme.syn.constant },
         ["@constant.macro"] = { fg = theme.syn.constant },
         
-        -- Modules (matching namespace semantic tokens)
-        ["@module"] = { fg = theme.syn.fun },  -- 28A9FF (blue) - matches namespace
-        ["@module.builtin"] = { fg = theme.syn.fun },  -- 28A9FF (blue) - matches namespace
+        -- Modules (matching namespace/type scopes - purple)
+        ["@module"] = { fg = theme.syn.type },  -- A95EFF (purple) - matches type scopes
+        ["@module.builtin"] = { fg = theme.syn.type },  -- A95EFF (purple) - matches type scopes
         
         -- Labels
         ["@label"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
@@ -91,9 +91,9 @@ function M.setup(colors, config)
         ["@parameter"] = { fg = theme.syn.parameter },
         ["@parameter.reference"] = { fg = theme.syn.parameter },
         
-        -- Namespaces (matching VS Code semantic tokens)
-        ["@namespace"] = { fg = theme.syn.fun },  -- 28A9FF (blue) - matches namespace
-        ["@namespace.builtin"] = { fg = theme.syn.fun },  -- 28A9FF (blue) - matches namespace
+        -- Namespaces (matching VS Code type scopes - purple)
+        ["@namespace"] = { fg = theme.syn.type },  -- A95EFF (purple) - matches type scopes
+        ["@namespace.builtin"] = { fg = theme.syn.type },  -- A95EFF (purple) - matches type scopes
         
         -- Symbols
         ["@symbol"] = { fg = theme.syn.constant },
