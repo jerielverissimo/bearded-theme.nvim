@@ -1,0 +1,200 @@
+local M = {}
+
+---@param colors BeardedColors
+---@param config? BeardedConfig
+function M.setup(colors, config)
+    config = config or require("bearded-theme").config
+    local theme = colors.theme
+
+    local highlights = {
+        -- Variables
+        ["@variable"] = { fg = theme.syn.variable },
+        ["@variable.builtin"] = { fg = theme.syn.special1 },
+        ["@variable.parameter"] = { fg = theme.syn.parameter },
+        ["@variable.member"] = { fg = theme.syn.identifier },
+        
+        -- Constants
+        ["@constant"] = { fg = theme.syn.constant },
+        ["@constant.builtin"] = { fg = theme.syn.constant },
+        ["@constant.macro"] = { fg = theme.syn.constant },
+        
+        -- Modules
+        ["@module"] = { fg = theme.syn.special1 },
+        ["@module.builtin"] = { fg = theme.syn.special1 },
+        
+        -- Labels
+        ["@label"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
+        
+        -- Strings
+        ["@string"] = { fg = theme.syn.string },
+        ["@string.documentation"] = vim.tbl_extend("force", { fg = theme.syn.comment }, config.commentStyle),
+        ["@string.regexp"] = { fg = theme.syn.regex },
+        ["@string.escape"] = { fg = theme.syn.special1 },
+        ["@string.special"] = { fg = theme.syn.special1 },
+        ["@string.special.symbol"] = { fg = theme.syn.special1 },
+        ["@string.special.path"] = { fg = theme.syn.string },
+        ["@string.special.url"] = { fg = theme.syn.string },
+        
+        -- Characters
+        ["@character"] = { fg = theme.syn.string },
+        ["@character.special"] = { fg = theme.syn.special1 },
+        
+        -- Numbers
+        ["@number"] = { fg = theme.syn.number },
+        ["@number.float"] = { fg = theme.syn.number },
+        
+        -- Booleans
+        ["@boolean"] = { fg = theme.syn.constant },
+        
+        -- Functions
+        ["@function"] = vim.tbl_extend("force", { fg = theme.syn.fun }, config.functionStyle),
+        ["@function.builtin"] = vim.tbl_extend("force", { fg = theme.syn.fun }, config.functionStyle),
+        ["@function.call"] = vim.tbl_extend("force", { fg = theme.syn.fun }, config.functionStyle),
+        ["@function.macro"] = vim.tbl_extend("force", { fg = theme.syn.fun }, config.functionStyle),
+        ["@function.method"] = vim.tbl_extend("force", { fg = theme.syn.fun }, config.functionStyle),
+        ["@function.method.call"] = vim.tbl_extend("force", { fg = theme.syn.fun }, config.functionStyle),
+        ["@constructor"] = vim.tbl_extend("force", { fg = theme.syn.fun }, config.functionStyle),
+        
+        -- Operators
+        ["@operator"] = { fg = theme.syn.operator },
+        
+        -- Keywords
+        ["@keyword"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
+        ["@keyword.function"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
+        ["@keyword.operator"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
+        ["@keyword.import"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
+        ["@keyword.storage"] = vim.tbl_extend("force", { fg = theme.syn.type }, config.typeStyle),
+        ["@keyword.repeat"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
+        ["@keyword.return"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
+        ["@keyword.debug"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
+        ["@keyword.exception"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
+        ["@keyword.conditional"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
+        ["@keyword.conditional.ternary"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
+        ["@keyword.directive"] = vim.tbl_extend("force", { fg = theme.syn.preproc }, config.keywordStyle),
+        ["@keyword.directive.define"] = vim.tbl_extend("force", { fg = theme.syn.preproc }, config.keywordStyle),
+        
+        -- Types
+        ["@type"] = vim.tbl_extend("force", { fg = theme.syn.type }, config.typeStyle),
+        ["@type.builtin"] = vim.tbl_extend("force", { fg = theme.syn.type }, config.typeStyle),
+        ["@type.definition"] = vim.tbl_extend("force", { fg = theme.syn.type }, config.typeStyle),
+        ["@type.qualifier"] = vim.tbl_extend("force", { fg = theme.syn.type }, config.typeStyle),
+        
+        -- Attributes
+        ["@attribute"] = { fg = theme.syn.special2 },
+        ["@attribute.builtin"] = { fg = theme.syn.special2 },
+        
+        -- Properties
+        ["@property"] = { fg = theme.syn.identifier },
+        ["@field"] = { fg = theme.syn.identifier },
+        
+        -- Parameters
+        ["@parameter"] = { fg = theme.syn.parameter },
+        ["@parameter.reference"] = { fg = theme.syn.parameter },
+        
+        -- Namespaces
+        ["@namespace"] = { fg = theme.syn.special1 },
+        ["@namespace.builtin"] = { fg = theme.syn.special1 },
+        
+        -- Symbols
+        ["@symbol"] = { fg = theme.syn.constant },
+        
+        -- Text
+        ["@text"] = { fg = theme.ui.fg },
+        ["@text.strong"] = { fg = theme.syn.special1, bold = true },
+        ["@text.emphasis"] = { fg = theme.syn.special1, italic = true },
+        ["@text.underline"] = { fg = theme.syn.special2, underline = true },
+        ["@text.strike"] = { fg = theme.syn.deprecated, strikethrough = true },
+        ["@text.title"] = { fg = theme.syn.fun, bold = true },
+        ["@text.title.1"] = { fg = theme.syn.fun, bold = true },
+        ["@text.title.2"] = { fg = theme.syn.fun, bold = true },
+        ["@text.title.3"] = { fg = theme.syn.fun, bold = true },
+        ["@text.title.4"] = { fg = theme.syn.fun, bold = true },
+        ["@text.title.5"] = { fg = theme.syn.fun, bold = true },
+        ["@text.title.6"] = { fg = theme.syn.fun, bold = true },
+        ["@text.literal"] = { fg = theme.syn.special1 },
+        ["@text.quote"] = { fg = theme.syn.special2 },
+        ["@text.uri"] = { fg = theme.syn.string, underline = true },
+        ["@text.math"] = { fg = theme.syn.special1 },
+        ["@text.environment"] = { fg = theme.syn.type },
+        ["@text.environment.name"] = { fg = theme.syn.fun },
+        ["@text.reference"] = { fg = theme.syn.special2 },
+        ["@text.todo"] = { fg = theme.syn.keyword, bold = true },
+        ["@text.note"] = { fg = theme.diag.info, bold = true },
+        ["@text.warning"] = { fg = theme.diag.warning, bold = true },
+        ["@text.danger"] = { fg = theme.diag.error, bold = true },
+        ["@text.diff.add"] = { fg = theme.vcs.added },
+        ["@text.diff.delete"] = { fg = theme.vcs.removed },
+        
+        -- Tags
+        ["@tag"] = { fg = theme.syn.fun },
+        ["@tag.attribute"] = { fg = theme.syn.identifier },
+        ["@tag.delimiter"] = { fg = theme.syn.punct },
+        
+        -- Punctuation
+        ["@punctuation.delimiter"] = { fg = theme.syn.punct },
+        ["@punctuation.bracket"] = { fg = theme.syn.punct },
+        ["@punctuation.special"] = { fg = theme.syn.punct },
+        
+        -- Comments
+        ["@comment"] = vim.tbl_extend("force", { fg = theme.syn.comment }, config.commentStyle),
+        ["@comment.documentation"] = vim.tbl_extend("force", { fg = theme.syn.comment }, config.commentStyle),
+        ["@comment.error"] = { fg = theme.diag.error },
+        ["@comment.warning"] = { fg = theme.diag.warning },
+        ["@comment.todo"] = { fg = theme.syn.keyword, bold = true },
+        ["@comment.note"] = { fg = theme.diag.info },
+        
+        -- Markup (for languages like Markdown)
+        ["@markup.strong"] = { fg = theme.syn.special1, bold = true },
+        ["@markup.italic"] = { fg = theme.syn.special1, italic = true },
+        ["@markup.strikethrough"] = { fg = theme.syn.deprecated, strikethrough = true },
+        ["@markup.underline"] = { fg = theme.syn.special2, underline = true },
+        ["@markup.heading"] = { fg = theme.syn.fun, bold = true },
+        ["@markup.heading.1"] = { fg = theme.syn.fun, bold = true },
+        ["@markup.heading.2"] = { fg = theme.syn.fun, bold = true },
+        ["@markup.heading.3"] = { fg = theme.syn.fun, bold = true },
+        ["@markup.heading.4"] = { fg = theme.syn.fun, bold = true },
+        ["@markup.heading.5"] = { fg = theme.syn.fun, bold = true },
+        ["@markup.heading.6"] = { fg = theme.syn.fun, bold = true },
+        ["@markup.quote"] = { fg = theme.syn.special2 },
+        ["@markup.math"] = { fg = theme.syn.special1 },
+        ["@markup.environment"] = { fg = theme.syn.type },
+        ["@markup.environment.name"] = { fg = theme.syn.fun },
+        ["@markup.link"] = { fg = theme.syn.string },
+        ["@markup.link.label"] = { fg = theme.syn.string },
+        ["@markup.link.url"] = { fg = theme.syn.string, underline = true },
+        ["@markup.raw"] = { fg = theme.syn.special1 },
+        ["@markup.raw.block"] = { fg = theme.syn.special1 },
+        ["@markup.list"] = { fg = theme.syn.keyword },
+        ["@markup.list.checked"] = { fg = theme.diag.ok },
+        ["@markup.list.unchecked"] = { fg = theme.syn.keyword },
+        
+        -- Diff
+        ["@diff.plus"] = { fg = theme.vcs.added },
+        ["@diff.minus"] = { fg = theme.vcs.removed },
+        ["@diff.delta"] = { fg = theme.vcs.changed },
+        
+        -- Errors
+        ["@error"] = { fg = theme.diag.error },
+        
+        -- Deprecated (for backward compatibility)
+        ["@text.todo.unchecked"] = { fg = theme.syn.keyword },
+        ["@text.todo.checked"] = { fg = theme.diag.ok },
+        ["@preproc"] = { fg = theme.syn.preproc },
+        ["@define"] = { fg = theme.syn.preproc },
+        ["@storageclass"] = vim.tbl_extend("force", { fg = theme.syn.type }, config.typeStyle),
+
+        -- Missing TreeSitter captures from Kanagawa comparison
+        ["@constructor.lua"] = { fg = theme.syn.keyword },
+        ["@keyword.coroutine"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
+        ["@keyword.luap"] = { link = "@string.regex" },
+        ["@keyword.modifier"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
+        ["@keyword.type"] = vim.tbl_extend("force", { fg = theme.syn.type }, config.typeStyle),
+        ["@string.regex"] = { fg = theme.syn.regex },
+        ["@tag.builtin"] = { fg = theme.syn.special1 },
+        ["@variable.parameter.builtin"] = { fg = theme.syn.special2, italic = true },
+    }
+
+    return highlights
+end
+
+return M
