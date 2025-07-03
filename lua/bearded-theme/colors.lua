@@ -14,6 +14,9 @@ local palette = {
     gray3 = "#c5c5cb",
     gray4 = "#8a8a8f",
     
+    -- Comment color (separate from line numbers)
+    comment = "#50505a",  -- matches comment foreground from tmp.json
+    
     -- Foreground
     fg = "#c5c5cb",
     fg_dim = "#aaaab3",

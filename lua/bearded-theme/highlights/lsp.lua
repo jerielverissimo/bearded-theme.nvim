@@ -7,28 +7,36 @@ function M.setup(colors, config)
     local theme = colors.theme
 
     local highlights = {
-        -- LSP Semantic Tokens
-        ["@lsp.type.class"] = { link = "@type" },
+        -- LSP Semantic Tokens (matching VS Code semanticTokenColors)
+        ["@lsp.type.class"] = { fg = theme.syn.type },  -- A95EFF (purple)
         ["@lsp.type.comment"] = { link = "@comment" },
-        ["@lsp.type.enum"] = { link = "@type" },
-        ["@lsp.type.enumMember"] = { link = "@constant" },
+        ["@lsp.type.enum"] = { fg = theme.syn.type },   -- A95EFF (purple)
+        ["@lsp.type.enumMember"] = { fg = theme.syn.type },  -- A95EFF (purple)
         ["@lsp.type.function"] = { link = "@function" },
-        ["@lsp.type.interface"] = { link = "@type" },
+        ["@lsp.type.interface"] = { fg = theme.syn.type },
         ["@lsp.type.macro"] = { link = "@function.macro" },
         ["@lsp.type.method"] = { link = "@function.method" },
-        ["@lsp.type.namespace"] = { link = "@namespace" },
-        ["@lsp.type.parameter"] = { link = "@parameter" },
-        ["@lsp.type.property"] = { link = "@property" },
-        ["@lsp.type.struct"] = { link = "@type" },
-        ["@lsp.type.type"] = { link = "@type" },
-        ["@lsp.type.typeParameter"] = { link = "@type" },
-        ["@lsp.type.variable"] = { link = "@variable" },
+        ["@lsp.type.namespace"] = { fg = theme.syn.fun },  -- 28A9FF (blue)
+        ["@lsp.type.parameter"] = { fg = theme.syn.parameter },  -- E66DFF (magenta)
+        ["@lsp.type.property"] = { fg = theme.syn.special1 },  -- FF7135 (orange)
+        ["@lsp.type.struct"] = { fg = theme.syn.type },
+        ["@lsp.type.type"] = { fg = theme.syn.type },
+        ["@lsp.type.typeParameter"] = { fg = theme.syn.type },
+        ["@lsp.type.variable"] = { fg = theme.syn.variable },  -- FF478D (pink)
+        
+        -- Additional semantic tokens to match VS Code
+        ["@lsp.type.class.declaration"] = { fg = theme.syn.type },  -- A95EFF (purple)
+        ["@lsp.type.decorator"] = { fg = theme.syn.parameter },  -- E66DFF (magenta)
+        ["@lsp.type.property.declaration"] = { fg = theme.ui.fg },  -- c5c5cb (gray)
+        ["@lsp.type.variable.defaultLibrary"] = { fg = theme.syn.special3 },  -- 14E5D4 (cyan)
         
         -- LSP Semantic Modifiers
         ["@lsp.mod.deprecated"] = { fg = theme.syn.deprecated, strikethrough = true },
         ["@lsp.mod.readonly"] = { fg = theme.syn.constant },
         ["@lsp.mod.static"] = { fg = theme.syn.special1 },
         ["@lsp.mod.abstract"] = { fg = theme.syn.type, italic = true },
+        ["@lsp.mod.declaration"] = { fg = theme.syn.type },  -- For class.declaration
+        ["@lsp.mod.defaultLibrary"] = { fg = theme.syn.special3 },  -- For variable.defaultLibrary
         
         -- LSP Diagnostics
         DiagnosticError = { fg = theme.diag.error },

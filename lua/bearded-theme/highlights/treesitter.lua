@@ -7,20 +7,20 @@ function M.setup(colors, config)
     local theme = colors.theme
 
     local highlights = {
-        -- Variables
-        ["@variable"] = { fg = theme.syn.variable },
-        ["@variable.builtin"] = { fg = theme.syn.special1 },
-        ["@variable.parameter"] = { fg = theme.syn.parameter },
-        ["@variable.member"] = { fg = theme.syn.identifier },
+        -- Variables (matching VS Code semantic tokens)
+        ["@variable"] = { fg = theme.syn.variable },  -- FF478D (pink)
+        ["@variable.builtin"] = { fg = theme.syn.special3 },  -- 14E5D4 (cyan) - matches variable.defaultLibrary
+        ["@variable.parameter"] = { fg = theme.syn.parameter },  -- E66DFF (magenta)
+        ["@variable.member"] = { fg = theme.syn.special1 },  -- FF7135 (orange) - matches property
         
         -- Constants
         ["@constant"] = { fg = theme.syn.constant },
         ["@constant.builtin"] = { fg = theme.syn.constant },
         ["@constant.macro"] = { fg = theme.syn.constant },
         
-        -- Modules
-        ["@module"] = { fg = theme.syn.special1 },
-        ["@module.builtin"] = { fg = theme.syn.special1 },
+        -- Modules (matching namespace semantic tokens)
+        ["@module"] = { fg = theme.syn.fun },  -- 28A9FF (blue) - matches namespace
+        ["@module.builtin"] = { fg = theme.syn.fun },  -- 28A9FF (blue) - matches namespace
         
         -- Labels
         ["@label"] = vim.tbl_extend("force", { fg = theme.syn.keyword }, config.keywordStyle),
@@ -79,21 +79,21 @@ function M.setup(colors, config)
         ["@type.definition"] = vim.tbl_extend("force", { fg = theme.syn.type }, config.typeStyle),
         ["@type.qualifier"] = vim.tbl_extend("force", { fg = theme.syn.type }, config.typeStyle),
         
-        -- Attributes
-        ["@attribute"] = { fg = theme.syn.special2 },
-        ["@attribute.builtin"] = { fg = theme.syn.special2 },
+        -- Attributes (matching decorator semantic tokens)
+        ["@attribute"] = { fg = theme.syn.parameter },  -- E66DFF (magenta) - matches decorator
+        ["@attribute.builtin"] = { fg = theme.syn.parameter },  -- E66DFF (magenta) - matches decorator
         
-        -- Properties
-        ["@property"] = { fg = theme.syn.identifier },
-        ["@field"] = { fg = theme.syn.identifier },
+        -- Properties (matching VS Code semantic tokens)
+        ["@property"] = { fg = theme.syn.special1 },  -- FF7135 (orange) - matches property
+        ["@field"] = { fg = theme.syn.special1 },  -- FF7135 (orange) - matches property
         
         -- Parameters
         ["@parameter"] = { fg = theme.syn.parameter },
         ["@parameter.reference"] = { fg = theme.syn.parameter },
         
-        -- Namespaces
-        ["@namespace"] = { fg = theme.syn.special1 },
-        ["@namespace.builtin"] = { fg = theme.syn.special1 },
+        -- Namespaces (matching VS Code semantic tokens)
+        ["@namespace"] = { fg = theme.syn.fun },  -- 28A9FF (blue) - matches namespace
+        ["@namespace.builtin"] = { fg = theme.syn.fun },  -- 28A9FF (blue) - matches namespace
         
         -- Symbols
         ["@symbol"] = { fg = theme.syn.constant },
@@ -127,7 +127,7 @@ function M.setup(colors, config)
         
         -- Tags
         ["@tag"] = { fg = theme.syn.fun },
-        ["@tag.attribute"] = { fg = theme.syn.identifier },
+        ["@tag.attribute"] = { fg = theme.syn.special1 },  -- FF7135 (orange) - matches property
         ["@tag.delimiter"] = { fg = theme.syn.punct },
         
         -- Punctuation
