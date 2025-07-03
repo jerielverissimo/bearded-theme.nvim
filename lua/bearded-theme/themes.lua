@@ -154,24 +154,24 @@ return {
                 hint = palette.hint,
             },
             term = {
-                palette.bg_dark,     -- black
-                palette.red,         -- red
-                palette.green,       -- green
-                palette.yellow,      -- yellow
-                palette.blue,        -- blue
-                palette.magenta,     -- magenta
-                palette.cyan,        -- cyan
-                palette.fg_dim,      -- white
-                palette.gray1,       -- bright black
-                palette.red,         -- bright red
-                palette.green,       -- bright green
-                palette.yellow,      -- bright yellow
-                palette.blue,        -- bright blue
-                palette.magenta,     -- bright magenta
-                palette.cyan,        -- bright cyan
-                palette.fg,          -- bright white
-                palette.orange,      -- extended color 1
-                palette.pink,        -- extended color 2
+                palette.bg_dark,         -- black (terminal.ansiBlack)
+                palette.red,             -- red (terminal.ansiRed)
+                palette.green,           -- green (terminal.ansiGreen)
+                palette.yellow,          -- yellow (terminal.ansiYellow)
+                palette.blue,            -- blue (terminal.ansiBlue)
+                palette.magenta,         -- magenta (terminal.ansiMagenta)
+                palette.cyan,            -- cyan (terminal.ansiCyan)
+                palette.fg_dim,          -- white (terminal.ansiWhite)
+                palette.bright_black,    -- bright black (terminal.ansiBrightBlack)
+                palette.bright_red,      -- bright red (terminal.ansiBrightRed)
+                palette.bright_green,    -- bright green (terminal.ansiBrightGreen)
+                palette.bright_yellow,   -- bright yellow (terminal.ansiBrightYellow)
+                palette.bright_blue,     -- bright blue (terminal.ansiBrightBlue)
+                palette.bright_magenta,  -- bright magenta (terminal.ansiBrightMagenta)
+                palette.bright_cyan,     -- bright cyan (terminal.ansiBrightCyan)
+                palette.bright_white,    -- bright white (terminal.ansiBrightWhite)
+                palette.orange,          -- extended color 1
+                palette.pink,            -- extended color 2
             },
         }
     end,
@@ -262,24 +262,24 @@ return {
                 hint = darker_palette.hint,
             },
             term = {
-                darker_palette.bg_dark,     -- black
-                darker_palette.red,         -- red
-                darker_palette.green,       -- green
-                darker_palette.yellow,      -- yellow
-                darker_palette.blue,        -- blue
-                darker_palette.magenta,     -- magenta
-                darker_palette.cyan,        -- cyan
-                darker_palette.fg_dim,      -- white
-                darker_palette.gray1,       -- bright black
-                darker_palette.red,         -- bright red
-                darker_palette.green,       -- bright green
-                darker_palette.yellow,      -- bright yellow
-                darker_palette.blue,        -- bright blue
-                darker_palette.magenta,     -- bright magenta
-                darker_palette.cyan,        -- bright cyan
-                darker_palette.fg,          -- bright white
-                darker_palette.orange,      -- extended color 1
-                darker_palette.pink,        -- extended color 2
+                darker_palette.bg_dark,         -- black (terminal.ansiBlack)
+                darker_palette.red,             -- red (terminal.ansiRed)
+                darker_palette.green,           -- green (terminal.ansiGreen)
+                darker_palette.yellow,          -- yellow (terminal.ansiYellow)
+                darker_palette.blue,            -- blue (terminal.ansiBlue)
+                darker_palette.magenta,         -- magenta (terminal.ansiMagenta)
+                darker_palette.cyan,            -- cyan (terminal.ansiCyan)
+                darker_palette.fg_dim,          -- white (terminal.ansiWhite)
+                darker_palette.bright_black,    -- bright black (terminal.ansiBrightBlack)
+                darker_palette.bright_red,      -- bright red (terminal.ansiBrightRed)
+                darker_palette.bright_green,    -- bright green (terminal.ansiBrightGreen)
+                darker_palette.bright_yellow,   -- bright yellow (terminal.ansiBrightYellow)
+                darker_palette.bright_blue,     -- bright blue (terminal.ansiBrightBlue)
+                darker_palette.bright_magenta,  -- bright magenta (terminal.ansiBrightMagenta)
+                darker_palette.bright_cyan,     -- bright cyan (terminal.ansiBrightCyan)
+                darker_palette.bright_white,    -- bright white (terminal.ansiBrightWhite)
+                darker_palette.orange,          -- extended color 1
+                darker_palette.pink,            -- extended color 2
             },
         }
     end,

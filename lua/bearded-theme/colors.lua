@@ -9,7 +9,7 @@ local palette = {
     border = "#060607",
     
     -- Grays
-    gray1 = "#50505a",
+    gray1 = "#373741",  -- matches editorLineNumber.foreground from tmp.json
     gray2 = "#aaaab3",
     gray3 = "#c5c5cb",
     gray4 = "#8a8a8f",
@@ -30,10 +30,20 @@ local palette = {
     pink = "#FF478D",
     cyan = "#14E5D4",
     
-    -- Transparent versions
-    selection = "#6a6a6a",
-    search = "#5a5a5a",
-    visual = "#6a6a6a",
+    -- Bright terminal colors to match tmp.json
+    bright_black = "#42424a",
+    bright_red = "#fc0606",
+    bright_green = "#21fe6b",
+    bright_yellow = "#ffb638",
+    bright_blue = "#28a9ff",
+    bright_magenta = "#e66dff",
+    bright_cyan = "#00f9e5",
+    bright_white = "#fbfbfb",
+    
+    -- Selection and search colors (based on #aaaaaa with opacity equivalents)
+    selection = "#aaaaaa",  -- base selection color
+    search = "#aaaaaa",     -- base search color  
+    visual = "#aaaaaa",     -- base visual color
     
     -- Semantic colors
     error = "#D62C2C",
